@@ -1,6 +1,20 @@
 # robot_training_2024
 Presentation for software masterclass at the drop bears 2024
 
+## UV
+
+```bash
+uv sync
+```
+
+```bash
+uv run python -m ensurepip
+```
+
+```bash
+uv run robotpy sync --no-install
+```
+
 ## Talking Points
 
 ### Create Repo
@@ -17,4 +31,8 @@ Presentation for software masterclass at the drop bears 2024
   - Copy straight from repo
   - Explain the importance of what it does in enforcing standardisation across the repo
   - Run install to trigger the hooks from now on
+  - Commit
+- Create PDM elements
+  - pyproject.toml can be copied from an older repo as a starting point to save time on config
+  - Run the appropriate download and install commands to get the lock file generated
   - Commit
