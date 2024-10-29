@@ -69,3 +69,32 @@ uv run robotpy sync --no-install
   - deploy will be the entry point for setting the deployed position setpoint for dispatch in execute
   - retract will be the entry point for setting the retracted position setpoint for dispatch in execute
   - execute will compute the appropriate PID things and send voltage commands to the motors
+
+### Begin Filling in Intake.py
+
+- Copy constants into the profile
+  - Mostly just math
+  - IDs are things we have set ahead of time for this exercise
+- Create motor objects
+  - Note that there are 2 motors on the robot L & R
+  - Both use a CANSparkMax
+  - These are brushless motors and we must indicate this
+  - Note the inversion for one motor and not the other we know what needs to happen after the gear train because we have used this
+- Create Encoder object
+  - Built directly into the motor for handling Brushless things
+  - Set the appropriate unit conversions from Rotations and RPS to Rad/s
+  - Initialise position to retracted position
+- Create PID and Feed forward controllers
+  - P - effort proportional to error so intuitively it is large when we are far from the setpoint
+  - I - effort that builds over time by considering all past errors. This is used to deal with steady state error which can be thought of as constant error offset because we are close to the setpoint and dont have the strength to overpower it with just proportional effort
+  - D - effort that is proportional to the rate of change of the system and is often used to damp things out to avoid overshoot
+  - Feed forward - predictive effort based on how you understand the system to minimise lag and reject disturbances
+  - magic numbers from our time at competition
+  - We have two different controllers for deploy and retract because the dynamics of the system are different when we are assisted by gravity and fighting against it
+- Create deploy and retract functions
+  - we are using a trapezoidal profile for tracking here, position and velocity paramaterised by time
+  - We need to make sure we only record the first time point of the command to calculate and track a single profile in this case
+- Fill in execute method
+  - calculate where we should be in the trapezoidal profile
+  - calculate determine if we should use feed forward or not
+  - dispatch desired setpoint and control information
