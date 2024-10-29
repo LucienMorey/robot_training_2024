@@ -40,3 +40,7 @@ uv run robotpy sync --no-install
   - robot.py in root of repository
   - components folder with `__init__.py`
   - controllers folder with `__init__.py`
+
+### Fill in Robot.py scaffold
+
+- Create empty main for execution of robot
