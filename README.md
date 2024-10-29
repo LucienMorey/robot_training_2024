@@ -36,3 +36,7 @@ uv run robotpy sync --no-install
   - pyproject.toml can be copied from an older repo as a starting point to save time on config
   - Run the appropriate download and install commands to get the lock file generated
   - Commit
+- Create empty robotpy files and directories
+  - robot.py in root of repository
+  - components folder with `__init__.py`
+  - controllers folder with `__init__.py`
