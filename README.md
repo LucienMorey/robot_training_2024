@@ -44,3 +44,13 @@ uv run robotpy sync --no-install
 ### Fill in Robot.py scaffold
 
 - Create empty main for execution of robot
+- Create empty robot class scaffold
+  - Note that we are importing libraries for this
+  - Mention this is a subclass of magicrobot so it inherits a special set of methods used to standardise the setup of robots
+- Create objects function to describe all of the things that will be present in a robot
+  - Create controller as example
+  - Point of dependency injection for other classes
+- Mention Different modes of robot (disabled, test, telep and auto)
+  - One init function called once at the beginning to set things up and guarantee state
+  - Periodic method run every 20ms (50Hz) to realise desired robot behaviour safely
+    - this is called ticking - most robot systems are not event based like someone would expect
