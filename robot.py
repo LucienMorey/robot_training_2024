@@ -1,8 +1,10 @@
 import magicbot
 import wpilib
+from components.intake import IntakeComponent
 
 
 class TrainingBot(magicbot.MagicRobot):
+    intake_component: IntakeComponent
 
     def createObjects(self) -> None:
         self.xbox_controller = wpilib.XboxController(0)
@@ -11,7 +13,10 @@ class TrainingBot(magicbot.MagicRobot):
         pass
 
     def teleopPeriodic(self):
-        pass
+        if self.xbox_controller.getAButton():
+            self.intake_component.deploy()
+        if self.xbox_controller.getYButton():
+            self.intake_component.retract()
 
 
 if __name__ == "__main__":

@@ -98,3 +98,10 @@ uv run robotpy sync --no-install
   - calculate where we should be in the trapezoidal profile
   - calculate determine if we should use feed forward or not
   - dispatch desired setpoint and control information
+
+### Add New Intake Component to Robot.py
+
+- Import new component
+- We can instantiate an instance of the object by type hinting a decleration in our robot class
+  - This is not how python normally does things! This is a special part of magicbot in our usecase
+- Add if statements in the teleop period for whether to deploy or retract
