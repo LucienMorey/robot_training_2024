@@ -105,3 +105,12 @@ uv run robotpy sync --no-install
 - We can instantiate an instance of the object by type hinting a decleration in our robot class
   - This is not how python normally does things! This is a special part of magicbot in our usecase
 - Add if statements in the teleop period for whether to deploy or retract
+
+### Test New Code
+
+- start by simulating robot
+  - not going for high fidelity sim in this case - just proving that the robot wont crash with our new code
+  - add config files to gitignore
+- Deploy code to the robot after proving it wont crash
+  - create test dir along the way
+- demonstrate functional mechanism
